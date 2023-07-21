@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>312</y>
+      <w>168</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>_USER_
+--
+name STRING NN
+firstname STRING NN
+email STRING NN
+phone STRING NULL
+birthday DATETIME NN
+lastConnexion DATETIME NN
+--
+gender
+reviews
+messages
+offers
+media
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>208</y>
+      <w>168</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>_PROPERTY_
+--
+area
+price
+furnished BOOL NN
+// (meublé)
+propertyType STRING NN
+genderAccepted STRING NN
+//Peu importe, Femmes, Hommes, Mixte 
+smokerAccepted
+animalAccepted
+handicapAccess
+AddressLine1
+AddressLine2
+postalCode
+city
+propertyType 
+--
+offer
+
+// un annnonce de logement peut contenir:
+// surface, prix, date de dispo, durée, meublé, fumeur,
+// type de propriété, genre accepté, animal accepté,
+// parking, accès handicapé, adresse, cp, ville</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>304</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>_GENDER_
+--
+type INT NN
+--
+WORDING:
+Homme
+Femme
+Non Défini</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>584</x>
+      <y>288</y>
+      <w>168</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>_MEDIA_
+--
+name STRING NN
+destination STRING NN
+--
+user
+offer
+bg=cyan
+
+//destination sert à déterminer où va la photo
+// ex: entête annonce, dans l'annonce ou profil</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1048</x>
+      <y>208</y>
+      <w>168</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>-PROPERTY_TYPE-
+--
+type
+--
+Appartements
+Bâteaux
+Chalets
+Châteaux
+Duplex
+Fermes
+Hôtels particuliers
+Immeubles
+Lofts/ateliers
+Maisons
+Résidences
+Studios
+Villas 
+
+bg=gray
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>584</x>
+      <y>392</y>
+      <w>168</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>_OFFER_
+--
+title STRING NN
+content TEXT NN
+
+--
+medias
+property
+rentalSearch
+bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>536</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>_REVIEW_
+--
+rate INT NN
+comment STRING NULL
+--
+// utilisateur qui dépose un avis
+reviewingUser 
+// utilisateur sur lequel l'avis est déposé
+targetUser </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>376</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>408</y>
+      <w>128</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>408</y>
+      <w>152</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+user writes reviews</panel_attributes>
+    <additional_attributes>120.0;10.0;50.0;10.0;50.0;210.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>744</x>
+      <y>304</y>
+      <w>56</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>m1=0..1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;160.0;50.0;160.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>744</x>
+      <y>392</y>
+      <w>112</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>m1=0..1
+m2=1
+lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;70.0;10.0;70.0;100.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>128</y>
+      <w>168</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>_MESSAGE_
+--
+content STRING NN
+timestamp DATETIME NN
+--
+sender Entity User NN
+receiver Entity User NN
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>160</y>
+      <w>128</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=*
+user writes messages</panel_attributes>
+    <additional_attributes>60.0;260.0;10.0;260.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>304</y>
+      <w>128</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>m1=0..1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;110.0;100.0;110.0;100.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>448</y>
+      <w>168</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>_RENTAL_SEARCH_
+--
+desiredCity
+maxBudget
+smoker
+haveAnimal
+age
+typeOfOccupants
+centerOfInterest
+acceptSmoker
+acceptAnimals
+typeOfOccupantsAccepted
+minAge
+maxAge
+gender
+
+--
+offer
+
+// - Infos perso: ville souhaitée, budget max, fumeur, 
+// possède un animal, age, type occupants (salarié, 
+// étudiant), centre d'intérêt
+// - Infos recherche: accepte fumeur, accepte animaux, 
+// type occupant, age min - max, genre</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>744</x>
+      <y>504</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>m1=0..1
+m2=1
+lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>440</y>
+      <w>168</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+review targets user</panel_attributes>
+    <additional_attributes>120.0;10.0;70.0;10.0;70.0;210.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>176</y>
+      <w>176</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=*
+user receives messages</panel_attributes>
+    <additional_attributes>10.0;240.0;50.0;240.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
