@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "phdarthoux/coolocasa",
+    "description": "coolocasa project",
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
