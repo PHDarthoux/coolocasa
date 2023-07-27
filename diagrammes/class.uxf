@@ -106,12 +106,13 @@ bg=cyan
       <x>1064</x>
       <y>344</y>
       <w>168</w>
-      <h>208</h>
+      <h>232</h>
     </coordinates>
     <panel_attributes>-PROPERTY_TYPE-
 --
 type
 --
+WORDING:
 Appartements
 Bâteaux
 Chalets
