@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>312</x>
-      <y>312</y>
+      <y>320</y>
       <w>168</w>
       <h>176</h>
     </coordinates>
@@ -31,27 +31,27 @@ bg=red</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>840</x>
-      <y>208</y>
+      <y>216</y>
       <w>168</w>
       <h>216</h>
     </coordinates>
     <panel_attributes>_PROPERTY_
 --
-area
-price
+area INT NN
+price INT NN
 furnished BOOL NN
 // (meublé)
 propertyType STRING NN
 genderAccepted STRING NN
 //Peu importe, Femmes, Hommes, Mixte 
-smokerAccepted
-animalAccepted
-handicapAccess
-AddressLine1
-AddressLine2
-postalCode
-city
-propertyType 
+smokerAccepted BOOL NN
+animalAccepted BOOL NN
+handicapAccess BOOL NN
+AddressLine1 STRING NULL
+AddressLine2 STRING NULL
+postalCode  STRING NULL
+city STRING NN
+propertyType STRING NN
 --
 offer
 
@@ -64,8 +64,8 @@ offer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>56</x>
-      <y>304</y>
+      <x>312</x>
+      <y>536</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -83,7 +83,7 @@ Non Défini</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>584</x>
-      <y>288</y>
+      <y>320</y>
       <w>168</w>
       <h>88</h>
     </coordinates>
@@ -103,15 +103,16 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1048</x>
-      <y>208</y>
+      <x>1064</x>
+      <y>344</y>
       <w>168</w>
-      <h>208</h>
+      <h>232</h>
     </coordinates>
     <panel_attributes>-PROPERTY_TYPE-
 --
 type
 --
+WORDING:
 Appartements
 Bâteaux
 Chalets
@@ -134,9 +135,9 @@ bg=gray
     <id>UMLClass</id>
     <coordinates>
       <x>584</x>
-      <y>392</y>
+      <y>432</y>
       <w>168</w>
-      <h>240</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>_OFFER_
 --
@@ -154,8 +155,8 @@ bg=green
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>56</x>
-      <y>536</y>
+      <x>24</x>
+      <y>360</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -173,21 +174,21 @@ targetUser </panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>376</y>
-      <w>112</w>
-      <h>32</h>
+      <x>264</x>
+      <y>464</y>
+      <w>64</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+    <additional_attributes>60.0;130.0;10.0;130.0;10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>472</x>
-      <y>408</y>
+      <y>448</y>
       <w>128</w>
       <h>32</h>
     </coordinates>
@@ -198,47 +199,47 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>408</y>
-      <w>152</w>
-      <h>192</h>
+      <x>184</x>
+      <y>400</y>
+      <w>144</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*
 user writes reviews</panel_attributes>
-    <additional_attributes>120.0;10.0;50.0;10.0;50.0;210.0;10.0;210.0</additional_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>744</x>
-      <y>304</y>
+      <y>336</y>
       <w>56</w>
-      <h>152</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>m1=0..1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;160.0;50.0;160.0;50.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;170.0;50.0;170.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>744</x>
-      <y>392</y>
+      <y>400</y>
       <w>112</w>
-      <h>104</h>
+      <h>136</h>
     </coordinates>
     <panel_attributes>m1=0..1
 m2=1
 lt=&lt;-</panel_attributes>
-    <additional_attributes>120.0;10.0;70.0;10.0;70.0;100.0;10.0;100.0</additional_attributes>
+    <additional_attributes>120.0;10.0;70.0;10.0;70.0;140.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>312</x>
-      <y>128</y>
+      <y>168</y>
       <w>168</w>
       <h>96</h>
     </coordinates>
@@ -256,53 +257,52 @@ receiver Entity User NN
     <id>Relation</id>
     <coordinates>
       <x>264</x>
-      <y>160</y>
+      <y>200</y>
       <w>128</w>
-      <h>232</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=*
 user writes messages</panel_attributes>
-    <additional_attributes>60.0;260.0;10.0;260.0;10.0;10.0;60.0;10.0</additional_attributes>
+    <additional_attributes>60.0;220.0;10.0;220.0;10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>472</x>
-      <y>304</y>
+      <y>336</y>
       <w>128</w>
-      <h>112</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>m1=0..1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;110.0;100.0;110.0;100.0;10.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;100.0;80.0;100.0;10.0;140.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>840</x>
-      <y>448</y>
+      <y>456</y>
       <w>168</w>
       <h>232</h>
     </coordinates>
     <panel_attributes>_RENTAL_SEARCH_
 --
-desiredCity
-maxBudget
-smoker
-haveAnimal
-age
-typeOfOccupants
-centerOfInterest
-acceptSmoker
-acceptAnimals
-typeOfOccupantsAccepted
-minAge
-maxAge
-gender
-
+desiredCity STRING NN
+maxBudget INT NULL
+smoker STRING NULL
+haveAnimal STRING NULL
+age INT NN
+typeOfOccupants STRING NULL
+centerOfInterest STRING NULL
+acceptSmoker STRING NULL
+acceptAnimals STRING NULL
+typeOfOccupantsAccepted STRING NULL
+minAge INT NULL
+maxAge INT NULL
 --
 offer
+genderAccepted
 
 // - Infos perso: ville souhaitée, budget max, fumeur, 
 // possède un animal, age, type occupants (salarié, 
@@ -315,7 +315,7 @@ offer
     <id>Relation</id>
     <coordinates>
       <x>744</x>
-      <y>504</y>
+      <y>520</y>
       <w>112</w>
       <h>32</h>
     </coordinates>
@@ -327,28 +327,41 @@ lt=&lt;-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>216</x>
-      <y>440</y>
-      <w>168</w>
-      <h>192</h>
+      <x>184</x>
+      <y>432</y>
+      <w>144</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=*
 review targets user</panel_attributes>
-    <additional_attributes>120.0;10.0;70.0;10.0;70.0;210.0;10.0;210.0</additional_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>472</x>
-      <y>176</y>
+      <y>216</y>
       <w>176</w>
-      <h>216</h>
+      <h>184</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=*
 user receives messages</panel_attributes>
-    <additional_attributes>10.0;240.0;50.0;240.0;50.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;200.0;50.0;200.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>648</y>
+      <w>384</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>m1=0..1
+m2=0..1
+lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;460.0;10.0</additional_attributes>
   </element>
 </diagram>
