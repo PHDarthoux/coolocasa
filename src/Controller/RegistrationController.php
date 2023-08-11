@@ -41,6 +41,10 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            $user->setLastConnection(new \DateTime());
+            $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setRoles(['ROLE_USER']);
+
             $entityManager->persist($user);
             $entityManager->flush();
 
