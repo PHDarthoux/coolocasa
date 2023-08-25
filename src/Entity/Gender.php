@@ -10,6 +10,10 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: GenderRepository::class)]
 class Gender
 {
+    final public const HOMME = 1;
+    final public const FEMME = 2;
+    final public const NONDEFINI = 3;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

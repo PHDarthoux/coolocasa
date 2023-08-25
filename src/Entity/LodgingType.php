@@ -10,6 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: LodgingTypeRepository::class)]
 class LodgingType
 {
+    final public const APPARTEMENT = 1;
+    final public const MAISON = 2;
+    final public const BATEAU = 3;
+    final public const CHALET = 4;
+    final public const FERME = 5;
+    final public const STUDIO = 6;
+    final public const VILLA = 7;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
