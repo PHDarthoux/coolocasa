@@ -29,8 +29,9 @@ class AppFixtures extends Fixture
         }
 
         // génération des LodgingTypes
-        for ($i = 1; $i < 8; ++$i) {
-            $lodgingType = LodgingTypeFactory::createOne(['type' => $i]);
+        $tab = ['Appartement', 'Maison', 'Bateau', 'Chalet', 'Ferme', 'Studio', 'Villa'];
+        for ($i = 0; $i < 7; ++$i) {
+            $lodgingType = LodgingTypeFactory::createOne(['type' => $tab[$i]]);
         }
 
         // Création d'un admin
