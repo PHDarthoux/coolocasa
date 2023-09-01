@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
         }
 
         // génération des LodgingTypes
-        $tab = ["Appartement", "Maison", "Bateau", "Chalet", "Ferme", "Studio", "Villa"];
+        $tab = ['Appartement', 'Maison', 'Bateau', 'Chalet', 'Ferme', 'Studio', 'Villa'];
         for ($i = 0; $i < 7; ++$i) {
             $lodgingType = LodgingTypeFactory::createOne(['type' => $tab[$i]]);
         }
