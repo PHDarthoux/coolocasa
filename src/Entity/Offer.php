@@ -33,6 +33,9 @@ class Offer
     #[ORM\OneToOne(inversedBy: 'offer', cascade: ['persist', 'remove'])]
     private ?RentalSearch $rentalSearch = null;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +109,18 @@ class Offer
     public function setRentalSearch(?RentalSearch $rentalSearch): static
     {
         $this->rentalSearch = $rentalSearch;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

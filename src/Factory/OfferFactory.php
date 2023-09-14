@@ -4,6 +4,7 @@ namespace App\Factory;
 
 use App\Entity\Offer;
 use App\Repository\OfferRepository;
+use DateTimeImmutable;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -62,10 +63,15 @@ final class OfferFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $date = self::faker()->dateTimeBetween(); // a date between -30 years ago, and now
+        $date = $date->format(('Y-m-d H:i:s'));
+        $date = new DateTimeImmutable($date); 
+
         return [
             'content' => self::faker()->text(),
             'title' => self::faker()->words(5, true),
             'user' => UserFactory::random(),
+            'createdAt' => $date,
         ];
     }
 
