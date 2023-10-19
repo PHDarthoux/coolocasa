@@ -1,6 +1,16 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Call to an undefined method Faker\\\\Generator\\:\\:secondaryAddress\\(\\)\\.$#"
+			count: 1
+			path: src/Factory/RoommateOfferFactory.php
+
+		-
+			message: "#^Call to an undefined method Faker\\\\Generator\\:\\:mobileNumber\\(\\)\\.$#"
+			count: 1
+			path: src/Factory/UserFactory.php
+
+		-
 			message: "#^Call to an undefined method Symfony\\\\Component\\\\Security\\\\Core\\\\User\\\\UserInterface\\:\\:getEmail\\(\\)\\.$#"
 			count: 2
 			path: src/Security/EmailVerifier.php
