@@ -1,6 +1,6 @@
 # pour appliquer les règles de formatage et de style définies dans la configuration PHP CS Fixer
 phpcs:
-	tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
+	tools/php-cs-fixer/vendor/bin/php-cs-fixer fix
 
 # pour valider la syntaxe et la structure d'un fichier YAML (dossier config)
 lint_yaml:
