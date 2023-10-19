@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use App\Repository\OfferRepository;
@@ -32,6 +34,9 @@ class Offer
 
     #[ORM\OneToOne(inversedBy: 'offer', cascade: ['persist', 'remove'])]
     private ?RentalSearch $rentalSearch = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
 
     public function getId(): ?int
     {
@@ -106,6 +111,18 @@ class Offer
     public function setRentalSearch(?RentalSearch $rentalSearch): static
     {
         $this->rentalSearch = $rentalSearch;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

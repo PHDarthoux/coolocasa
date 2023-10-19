@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DataFixtures;
 
 use App\Entity\LodgingType;
@@ -29,9 +31,9 @@ class AppFixtures extends Fixture
         }
 
         // génération des LodgingTypes
-        $tab = ['Appartement', 'Maison', 'Bateau', 'Chalet', 'Ferme', 'Studio', 'Villa'];
+        $lodgingTypes = ['Appartement', 'Maison', 'Bateau', 'Chalet', 'Ferme', 'Studio', 'Villa'];
         for ($i = 0; $i < 7; ++$i) {
-            $lodgingType = LodgingTypeFactory::createOne(['type' => $tab[$i]]);
+            $lodgingType = LodgingTypeFactory::createOne(['type' => $lodgingTypes[$i]]);
         }
 
         // Création d'un admin
