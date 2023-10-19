@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Factory;
 
 use App\Entity\Media;
@@ -63,7 +65,7 @@ final class MediaFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'name' => self::faker()->words(5, true),
+            'name' => self::faker()->randomElement(['appartement', 'maison', 'bateau', 'chalet', 'ferme', 'studio', 'villa']),
         ];
     }
 

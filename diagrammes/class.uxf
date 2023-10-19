@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>408</x>
+      <x>328</x>
       <y>384</y>
       <w>168</w>
       <h>192</h>
@@ -32,7 +32,7 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>920</x>
+      <x>840</x>
       <y>240</y>
       <w>168</w>
       <h>224</h>
@@ -66,7 +66,7 @@ genderAccepted
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>408</x>
+      <x>328</x>
       <y>592</y>
       <w>168</w>
       <h>136</h>
@@ -84,7 +84,7 @@ Non Défini</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>664</x>
+      <x>584</x>
       <y>384</y>
       <w>168</w>
       <h>96</h>
@@ -107,7 +107,7 @@ bg=cyan
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1168</x>
+      <x>1088</x>
       <y>360</y>
       <w>168</w>
       <h>264</h>
@@ -141,7 +141,7 @@ bg=gray
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>664</x>
+      <x>584</x>
       <y>496</y>
       <w>168</w>
       <h>160</h>
@@ -163,7 +163,7 @@ bg=green
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>112</x>
+      <x>32</x>
       <y>424</y>
       <w>168</w>
       <h>152</h>
@@ -182,7 +182,7 @@ targetUser </panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>280</x>
       <y>520</y>
       <w>64</w>
       <h>120</h>
@@ -195,7 +195,7 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
+      <x>488</x>
       <y>512</y>
       <w>112</w>
       <h>32</h>
@@ -207,7 +207,7 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
+      <x>192</x>
       <y>464</y>
       <w>152</w>
       <h>40</h>
@@ -221,7 +221,7 @@ user writes reviews</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>824</x>
+      <x>744</x>
       <y>448</y>
       <w>64</w>
       <h>112</h>
@@ -234,7 +234,7 @@ lt=-&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>824</x>
+      <x>744</x>
       <y>448</y>
       <w>112</w>
       <h>136</h>
@@ -247,7 +247,7 @@ lt=-</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>408</x>
+      <x>328</x>
       <y>232</y>
       <w>168</w>
       <h>96</h>
@@ -265,7 +265,7 @@ receiver Entity User NN
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>280</x>
       <y>264</y>
       <w>128</w>
       <h>200</h>
@@ -278,7 +278,7 @@ user writes messages</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
+      <x>488</x>
       <y>400</y>
       <w>112</w>
       <h>88</h>
@@ -291,7 +291,7 @@ lt=-&gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>920</x>
+      <x>840</x>
       <y>480</y>
       <w>168</w>
       <h>224</h>
@@ -324,7 +324,7 @@ lodgingType
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>824</x>
+      <x>744</x>
       <y>576</y>
       <w>112</w>
       <h>32</h>
@@ -337,7 +337,7 @@ lt=-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
+      <x>192</x>
       <y>496</y>
       <w>152</w>
       <h>40</h>
@@ -351,7 +351,7 @@ review targets user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
+      <x>488</x>
       <y>280</y>
       <w>176</w>
       <h>184</h>
@@ -364,7 +364,7 @@ user receives messages</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>824</x>
+      <x>744</x>
       <y>416</y>
       <w>112</w>
       <h>32</h>
@@ -377,7 +377,7 @@ lt=&lt;-</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
+      <x>1000</x>
       <y>496</y>
       <w>104</w>
       <h>40</h>
@@ -390,7 +390,7 @@ m2=0..*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1080</x>
+      <x>1000</x>
       <y>368</y>
       <w>104</w>
       <h>40</h>
