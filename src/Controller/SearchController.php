@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Entity\LodgingType;
 use App\Form\SearchFormType;
 use App\Repository\LodgingTypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

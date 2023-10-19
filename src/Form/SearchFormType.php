@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form;
 
 use App\Entity\LodgingType;
@@ -21,24 +23,24 @@ class SearchFormType extends AbstractType
             ->add('wish', ChoiceType::class, [
                 'label' => false,
                 'choices' => [
-                    "Je cherche un logement" => RoommateOffer::class,
-                    "Je propose un logement" => RentalSearch::class,
-                ]
+                    'Je cherche un logement' => RoommateOffer::class,
+                    'Je propose un logement' => RentalSearch::class,
+                ],
             ])
             ->add('lodging', EntityType::class, [
                 'class' => LodgingType::class,
                 'multiple' => false,
                 'expanded' => true,
-                'required' => true
+                'required' => true,
             ])
             ->add('city', TextType::class, [
                 'attr' => [
                     'placeholder' => ' Ville',
-                ]
+                ],
                 // 'mapped' => false
             ])
             ->add('find', SubmitType::class, [
-                'label' => "Trouver"
+                'label' => 'Trouver',
             ])
         ;
     }
