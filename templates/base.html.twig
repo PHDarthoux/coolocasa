@@ -15,13 +15,38 @@
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
+	<header>
+		{% block header %}
+			{% if app.user %}
+				<a href="{{ path('app_logout') }}">Déconnecter</a>
+			{% else %}
+				<a href="{{ path('app_login') }}">Connecter</a>
+				<a href="{{ path('app_register') }}">S'incrire</a>
+			{% endif %}
+		{% endblock %}
+	</header>
+
 	<body>
-		{% if app.user %}
-			<a href="{{ path('app_logout') }}">Déconnecter</a>
-		{% else %}
-			<a href="{{ path('app_login') }}">Connecter</a>
-			<a href="{{ path('app_register') }}">S'incrire</a>
-		{% endif %}
 		{% block body %}{% endblock %}
 	</body>
+
+	<footer>
+		{% block footer %}
+			<div class="row">
+				<div class="bg-primary">
+					<a href="#">Mentions Légales</a>
+					<a href="#">Contact</a>
+					<a href="#">Se connecter</a>
+					<a href="#">S'inscrire'</a>
+				</div>
+				<div class="col-5">
+					<h4>Suivez-nous</h4>
+					<a href="#">RS icon</a>
+					<a href="#">RS icon</a>
+					<a href="#">RS icon</a>
+				</div>
+
+			</div>
+		{% endblock %}
+	</footer>
 </html>
