@@ -29,13 +29,12 @@ class SearchFormType extends AbstractType
             ])
             ->add('lodging', EntityType::class, [
                 'class' => LodgingType::class,
-                'multiple' => false,
+                'multiple' => true,
                 'expanded' => true,
-                'required' => true,
             ])
             ->add('city', TextType::class, [
                 'attr' => [
-                    'placeholder' => ' Ville',
+                    'placeholder' => 'à : Ville',
                 ],
                 // 'mapped' => false
             ])
