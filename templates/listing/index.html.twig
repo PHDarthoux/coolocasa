@@ -1,26 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ListingController!{% endblock %}
+{% block title %}Annonces sur
+	{{ app.request.get('search_form')['city'] }}
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello! ✅</h1>
+	{# form de recherche #}
+	{{ render_esi(path('app_search')) }}
+	{# ajouter contenu du form #}
 
-{% for offer in offers %}
-	<div>
-		<img src="{{ asset('media/offer/' ~ offer.media.name ~ ".jpg") }}" alt="">
-		<h3>{{ offer.title }}</h3>
-		<p>{{ offer.content }}</p>
-		<p>Annonce déposée par :
-			{{ offer.user.firstname }}
-			{{ offer.user.name }}</p>
+	<div class="container">
+		{% if offers %}
+			<h1>
+				{{ offers|length == 1 ?
+					 "Nous avons trouvé 1 offre sur " ~ app.request.get('search_form')['city'] ~ "."
+					:
+					"Voici les " ~ offers|length ~ " offres sur " ~ app.request.get('search_form')['city'] ~ "."
+				}}
+			</h1>
+		{% endif %}
+
+		{% if offers is empty %}
+			<p>Il n'y pas d'offres pour le moment
+			</p>
+
+		{% endif %}
+
+		{% for offer in offers %}
+			<div>
+				<img src="{{ asset('media/offer/' ~ offer.media.name ~ ".jpg") }}" alt="">
+				<h3>{{ offer.title }}</h3>
+				<p>{{ offer.content }}</p>
+				<p>Annonce déposée par :
+					{{ offer.user.firstname }}
+					{{ offer.user.name }}</p>
+			</div>
+		{% endfor %}
 	</div>
-{% endfor %}
-
-</div>
 {% endblock %}

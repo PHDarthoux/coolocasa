@@ -17,12 +17,20 @@
 	</head>
 	<header>
 		{% block header %}
-			{% if app.user %}
-				<a href="{{ path('app_logout') }}">Déconnecter</a>
-			{% else %}
-				<a href="{{ path('app_login') }}">Connecter</a>
-				<a href="{{ path('app_register') }}">S'incrire</a>
-			{% endif %}
+			<div class="d-flex flex-row-reverse ">
+				{% if app.user %}
+					<div class="p-2">
+						<a href="{{ path('app_logout') }}">Déconnecter</a>
+					</div>
+				{% else %}
+					<div class="p-2">
+						<a href="{{ path('app_login') }}">Connexion</a>
+					</div>
+					<div class="p-2">
+						<a href="{{ path('app_register') }}">S'incrire</a>
+					</div>
+				{% endif %}
+			</div>
 		{% endblock %}
 	</header>
 
@@ -32,20 +40,39 @@
 
 	<footer>
 		{% block footer %}
-			<div class="row">
-				<div class="bg-primary">
-					<a href="#">Mentions Légales</a>
-					<a href="#">Contact</a>
-					<a href="#">Se connecter</a>
-					<a href="#">S'inscrire'</a>
-				</div>
-				<div class="col-5">
-					<h4>Suivez-nous</h4>
-					<a href="#">RS icon</a>
-					<a href="#">RS icon</a>
-					<a href="#">RS icon</a>
-				</div>
+			<div class="container py-4">
+				<div class="row">
+					<div class="d-flex flex-column col-6">
+						<h4 class="mt-2">Menu</h4>
+						<div class="p-1">
+							<a href="#">Mentions Légales</a>
+						</div>
+						<div class="p-1">
+							<a href="#">Contact</a>
+						</div>
+						<div class="p-1">
+							<a href="#">Se connecter</a>
+						</div>
+						<div class="p-1">
+							<a href="#">S'inscrire'</a>
+						</div>
+					</div>
 
+					<div class="col-6">
+						<h4 class="mt-2">Suivez-nous</h4>
+						<div class="d-flex flex-row">
+							<div class="p-2">
+								<a href="#">icon</a>
+							</div>
+							<div class="p-2">
+								<a href="#">icon</a>
+							</div>
+							<div class="p-2">
+								<a href="#">icon</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		{% endblock %}
 	</footer>

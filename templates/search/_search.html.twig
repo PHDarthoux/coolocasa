@@ -1,30 +1,13 @@
-{# <div>
-	<form action="{{ path('app_listing') }}">
-		<select name="wish" id="wish">
-			<option value="RoommateOffer">
-				{{ constant('App\\Entity\\RoommateOffer::WISH') }}
-			</option>
-			<option value="RentalSearch">
-				{{ constant('App\\Entity\\RentalSearch::WISH') }}
-			</option>
-		</select>
+<div class="container py-4">
+	{{ form_start(searchForm, {'action': path('app_listing') }) }}
+		<div class="d-flex justify-content-center">
+				{{ form_widget(searchForm.wish) }}
+				{{ form_widget(searchForm.city) }}
+				{{ form_widget(searchForm.find) }}
+		</div>
 
-		{% for lodging in lodgings %}
-			<input type="radio" id="{{ lodging.type }}" name="lodging" value="{{ lodging.id }}"/>
-			<label for="{{ lodging.type }}">{{ lodging.type }}</label>
-		{% endfor %}
-
-		<input type="text" name="city" placeholder="Dans quelle ville?">
-
-		<button type="submit">trouver</button>
-	</form>
-</div> #}
-
-<div>
-	{{ form_start(searchForm, {'action': path('app_listing')}) }}
-	{{ form_widget(searchForm.wish)}}
-	{{ form_widget(searchForm.lodging)}}
-	{{ form_widget(searchForm.city)}}
-	{{ form_widget(searchForm.find)}}
-	{{ form_end(searchForm)}}
+		<div class="d-flex justify-content-center">
+			{{ form_widget(searchForm.lodging) }}
+		</div>
+	{{ form_end(searchForm) }}
 </div>
