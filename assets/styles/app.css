@@ -1,3 +1,17 @@
-body {
-    background-color: lightgray;
+header{
+    background-color: #d81159;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+footer{
+    background-color: #8F2D56;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
 }
