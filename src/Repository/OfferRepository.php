@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\DTO\SearchDTO;
 use App\Entity\LodgingType;
 use App\Entity\Offer;
 use App\Entity\RentalSearch;
@@ -27,12 +28,19 @@ class OfferRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param array<int> $lodgingIdChoices
      *
      * @return Offer[] Returns an array of Offer objects
      */
-    public function findBySearch(string $wish, array $lodgingIdChoices, string $city): array
+    public function findBySearch(SearchDTO $searchDTO): array
     {
+        // dd($searchDTO);
+        $wish = $searchDTO->getWish();
+        $lodgingIdChoices  = [];
+        foreach ($searchDTO->getLodging() as $lodgingType) {
+            $lodgingIdChoices[] = $lodgingType->getId();
+        }
+        $city = $searchDTO->getCity();
+
         $qb = $this->createQueryBuilder('o');
 
         if (RentalSearch::class === $wish) {
