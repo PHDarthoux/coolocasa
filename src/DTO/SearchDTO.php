@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DTO;
 
 use App\Entity\RoommateOffer;
@@ -10,12 +12,11 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * Cette classe est utilisée pour encapsuler les critères de recherche d'annonces, tels que le souhait,
  * la ville et éventuellement un ou plusieurs types de logement.
- *
  */
 class SearchDTO
 {
     private string $wish = RoommateOffer::class;
-    private string $city = "";
+    private string $city = '';
     private ?ArrayCollection $lodgingTypes;
 
     // public function __construct(
@@ -50,12 +51,12 @@ class SearchDTO
         return $this;
     }
 
-    public function getLodgingTypes() : ?ArrayCollection
+    public function getLodgingTypes(): ?ArrayCollection
     {
         return $this->lodgingTypes;
     }
 
-    public function setLodgingTypes($lodgingTypes) : static
+    public function setLodgingTypes($lodgingTypes): static
     {
         $this->lodgingTypes = $lodgingTypes;
 

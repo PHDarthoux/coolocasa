@@ -6,7 +6,6 @@ namespace App\Controller;
 
 use App\DTO\SearchDTO;
 use App\Form\SearchDTOType;
-use App\Form\SearchFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

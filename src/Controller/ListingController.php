@@ -6,7 +6,6 @@ namespace App\Controller;
 
 use App\DTO\SearchDTO;
 use App\Form\SearchDTOType;
-use App\Form\SearchFormType;
 use App\Repository\OfferRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,8 +18,7 @@ class ListingController extends AbstractController
     public function listing(
         Request $request,
         OfferRepository $offerRepository,
-    ): Response
-    {
+    ): Response {
         $dto = new SearchDTO();
         $form = $this->createForm(SearchDTOType::class, $dto);
         $form->handleRequest($request);
@@ -28,7 +26,7 @@ class ListingController extends AbstractController
         $offers = [];
 
         if ($form->isSubmitted() && $form->isValid()) {
-              $offers = $offerRepository->findBySearch($dto);
+            $offers = $offerRepository->findBySearch($dto);
         }
 
         return $this->render('listing/index.html.twig', [

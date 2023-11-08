@@ -28,14 +28,13 @@ class OfferRepository extends ServiceEntityRepository
     }
 
     /**
-     *
      * @return Offer[] Returns an array of Offer objects
      */
     public function findBySearch(SearchDTO $searchDTO): array
     {
         $wish = $searchDTO->getWish();
         $city = $searchDTO->getCity();
-        $lodgingIdChoices  = [];
+        $lodgingIdChoices = [];
 
         foreach ($searchDTO->getLodgingTypes() as $lodgingType) {
             $lodgingIdChoices[] = $lodgingType->getId();
