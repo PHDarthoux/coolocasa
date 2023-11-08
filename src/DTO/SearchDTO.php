@@ -3,12 +3,20 @@
 namespace App\DTO;
 
 use App\Entity\RoommateOffer;
+use Doctrine\Common\Collections\ArrayCollection;
 
+/**
+ * Représente un objet de transfert de données (DTO) pour la recherche d'annonces.
+ *
+ * Cette classe est utilisée pour encapsuler les critères de recherche d'annonces, tels que le souhait,
+ * la ville et éventuellement un ou plusieurs types de logement.
+ *
+ */
 class SearchDTO
 {
     private string $wish = RoommateOffer::class;
     private string $city = "";
-    private $lodging;
+    private ?ArrayCollection $lodgingTypes;
 
     // public function __construct(
     //     $wish = RoommateOffer::class,
@@ -23,30 +31,34 @@ class SearchDTO
         return $this->wish;
     }
 
-    public function setWish(string $wish)
+    public function setWish(string $wish): static
     {
         $this->wish = $wish;
+
+        return $this;
     }
 
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
 
-    public function setCity($city)
+    public function setCity($city): static
     {
         $this->city = $city;
 
         return $this;
     }
 
-    public function getLodging()
+    public function getLodgingTypes() : ?ArrayCollection
     {
-        return $this->lodging;
+        return $this->lodgingTypes;
     }
 
-    public function setLodging($lodging)
+    public function setLodgingTypes($lodgingTypes) : static
     {
-        $this->lodging = $lodging;
+        $this->lodgingTypes = $lodgingTypes;
+
+        return $this;
     }
 }

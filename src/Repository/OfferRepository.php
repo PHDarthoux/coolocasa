@@ -33,13 +33,13 @@ class OfferRepository extends ServiceEntityRepository
      */
     public function findBySearch(SearchDTO $searchDTO): array
     {
-        // dd($searchDTO);
         $wish = $searchDTO->getWish();
+        $city = $searchDTO->getCity();
         $lodgingIdChoices  = [];
-        foreach ($searchDTO->getLodging() as $lodgingType) {
+
+        foreach ($searchDTO->getLodgingTypes() as $lodgingType) {
             $lodgingIdChoices[] = $lodgingType->getId();
         }
-        $city = $searchDTO->getCity();
 
         $qb = $this->createQueryBuilder('o');
 
@@ -48,6 +48,7 @@ class OfferRepository extends ServiceEntityRepository
                 ->leftJoin(LodgingType::class, 'lt', 'WITH', 'rs.id = lt.id')
                 ->where('rs.desiredCity LIKE :city')
                 ->setParameter('city', $city);
+
             if (!empty($lodgingIdChoices)) {
                 $qb->andWhere('lt.id IN (:ids)')
                     ->setParameter('ids', $lodgingIdChoices);

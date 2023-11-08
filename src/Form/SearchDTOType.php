@@ -6,6 +6,8 @@ namespace App\Form;
 
 use App\DTO\SearchDTO;
 use App\Entity\LodgingType;
+use App\Entity\RentalSearch;
+use App\Entity\RoommateOffer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -31,7 +33,7 @@ class SearchDTOType extends AbstractType
                     'placeholder' => 'à : Ville',
                 ],
             ])
-            ->add('lodging', EntityType::class, [
+            ->add('lodgingTypes', EntityType::class, [
                 'class' => LodgingType::class,
                 'multiple' => true,
                 'expanded' => true,
