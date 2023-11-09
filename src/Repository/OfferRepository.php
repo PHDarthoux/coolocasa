@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\DTO\SearchDTO;
+use App\Entity\LodgingType;
 use App\Entity\Offer;
 use App\Entity\RentalSearch;
 use App\Entity\RoommateOffer;
@@ -28,26 +30,40 @@ class OfferRepository extends ServiceEntityRepository
     /**
      * @return Offer[] Returns an array of Offer objects
      */
-    public function findBySearch(string $wish, int $lodgingId, string $city): array
+    public function findBySearch(SearchDTO $searchDTO): array
     {
+        $wish = $searchDTO->getWish();
+        $city = $searchDTO->getCity();
+        $lodgingIdChoices = [];
+
+        foreach ($searchDTO->getLodgingTypes() as $lodgingType) {
+            $lodgingIdChoices[] = $lodgingType->getId();
+        }
+
         $qb = $this->createQueryBuilder('o');
 
         if (RentalSearch::class === $wish) {
-            $qb->leftJoin('l.rentalSearches', 'rs')
-                ->andWhere('rs.desiredCity = :city')
-                ->setParameter('city', $city)
-                ->andWhere('ro.lodgingType = :lodgingId')
-                ->setParameter('lodgingId', $lodgingId)
-            ;
+            $qb->leftJoin(RentalSearch::class, 'rs', 'WITH', 'o.rentalSearch = rs.id')
+                ->leftJoin(LodgingType::class, 'lt', 'WITH', 'rs.id = lt.id')
+                ->where('rs.desiredCity LIKE :city')
+                ->setParameter('city', $city);
+
+            if (!empty($lodgingIdChoices)) {
+                $qb->andWhere('lt.id IN (:ids)')
+                    ->setParameter('ids', $lodgingIdChoices);
+            }
         }
 
         if (RoommateOffer::class === $wish) {
             $qb->leftJoin(RoommateOffer::class, 'ro', 'WITH', 'o.roommateOffer = ro.id')
-                ->andWhere('ro.city Like :city')
-                ->setParameter('city', '%'.$city.'%')
-                ->andWhere('ro.lodgingType = :lodgingId')
-                ->setParameter('lodgingId', $lodgingId)
-            ;
+                ->leftJoin(LodgingType::class, 'lt', 'WITH', 'ro.lodgingType = lt.id')
+                ->where('ro.city LIKE :city')
+                ->setParameter('city', $city);
+
+            if (!empty($lodgingIdChoices)) {
+                $qb->andWhere('lt.id IN (:ids)')
+                    ->setParameter('ids', $lodgingIdChoices);
+            }
         }
 
         return $qb

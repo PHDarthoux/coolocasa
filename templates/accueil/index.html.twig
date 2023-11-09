@@ -1,39 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!
+{% block title %}CooLoCasa - Welcome !
 {% endblock %}
 
 {% block body %}
 
 	{% include "include/_flash.html.twig" %}
 
-	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-	</style>
-
-	<div class="example-wrapper">
+	<div class="py-4 text-center welcome">
 		<h1>Bienvenue sur CooLoCasa</h1>
 	</div>
 
 	{# form de recherche #}
 	{{ render_esi(path('app_search')) }}
-<br>
+	
 	{# listing des dernières offres #}
-	{% for offer in lastOffers %}
-		<div>
-			<img src="{{ asset('media/offer/' ~ offer.media.name ~ ".jpg") }}" alt="">
-			<h3>{{ offer.title }}</h3>
-			<p>{{ offer.content }}</p>
-			<p>Annonce déposée par :
-				{{ offer.user.firstname }}
-				{{ offer.user.name }}</p>
-		</div>
-	{% endfor %}
+	<div class="container">
+		{% for offer in lastOffers %}
+		{# TODO: mise en forme des vignettes #}
+			<div>
+				<img src="{{ asset('media/offer/' ~ offer.media.name ~ ".jpg") }}" alt="">
+				<h3>{{ offer.title }}</h3>
+				<p>{{ offer.content }}</p>
+				<p>Annonce déposée par :
+					{{ offer.user.firstname }}
+					{{ offer.user.name }}</p>
+			</div>
+		{% endfor %}
+	</div>
 
 
 {% endblock %}
