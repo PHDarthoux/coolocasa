@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Annonces sur
-	{{ app.request.get('search_form')['city'] }}
+	{{ app.request.get('search_dto')['city'] }}
 {% endblock %}
 
 {% block body %}
@@ -14,9 +14,9 @@
 		{% if offers %}
 			<h1>
 				{{ offers|length == 1 ?
-					 "Nous avons trouvé 1 offre sur " ~ app.request.get('search_form')['city'] ~ "."
+					"Nous avons trouvé 1 offre sur " ~ app.request.get('search_dto')['city'] ~ "."
 					:
-					"Voici les " ~ offers|length ~ " offres sur " ~ app.request.get('search_form')['city'] ~ "."
+					"Voici les " ~ offers|length ~ " offres sur " ~ app.request.get('search_dto')['city'] ~ "."
 				}}
 			</h1>
 		{% endif %}

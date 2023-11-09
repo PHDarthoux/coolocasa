@@ -1,6 +1,8 @@
 # pour appliquer les règles de formatage et de style définies dans la configuration PHP CS Fixer
 phpcs:
-	tools/php-cs-fixer/vendor/bin/php-cs-fixer fix
+	docker pull oskarstark/php-cs-fixer-ga:latest
+	docker run --rm -it -w=/app -v $(CURDIR):/app oskarstark/php-cs-fixer-ga:latest --diff
+#	tools/php-cs-fixer/vendor/bin/php-cs-fixer fix
 
 # pour valider la syntaxe et la structure d'un fichier YAML (dossier config)
 lint_yaml:
