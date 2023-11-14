@@ -10,6 +10,7 @@ use App\Entity\Offer;
 use App\Entity\RentalSearch;
 use App\Entity\RoommateOffer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -27,10 +28,7 @@ class OfferRepository extends ServiceEntityRepository
         parent::__construct($registry, Offer::class);
     }
 
-    /**
-     * @return Offer[] Returns an array of Offer objects
-     */
-    public function findBySearch(SearchDTO $searchDTO): array
+    public function findBySearch(SearchDTO $searchDTO): Query
     {
         $wish = $searchDTO->getWish();
         $city = $searchDTO->getCity();
@@ -68,8 +66,8 @@ class OfferRepository extends ServiceEntityRepository
 
         return $qb
             // ->setMaxResults(10)
-            ->getQuery()
-            ->getResult();
+            ->getQuery();
+        //            ->getResult();
     }
 
     //    /**

@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\DTO;
 
+use App\Entity\RentalSearch;
 use App\Entity\RoommateOffer;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Représente un objet de transfert de données (DTO) pour la recherche d'annonces.
@@ -15,17 +17,18 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class SearchDTO
 {
+    public const WISH_LIST = [
+        RoommateOffer::class,
+        RentalSearch::class,
+    ];
     private string $wish = RoommateOffer::class;
     private string $city = '';
-    private ?ArrayCollection $lodgingTypes;
+    private Collection $lodgingTypes;
 
-    // public function __construct(
-    //     $wish = RoommateOffer::class,
-    //     $city = "")
-    // {
-    //     $this->wish = $wish;
-    //     $this->city = $city;
-    // }
+    public function __construct()
+    {
+        $this->lodgingTypes = new ArrayCollection();
+    }
 
     public function getWish(): string
     {
@@ -34,7 +37,7 @@ class SearchDTO
 
     public function setWish(string $wish): static
     {
-        $this->wish = $wish;
+        $this->wish = self::WISH_LIST[$wish];
 
         return $this;
     }
@@ -51,7 +54,7 @@ class SearchDTO
         return $this;
     }
 
-    public function getLodgingTypes(): ?ArrayCollection
+    public function getLodgingTypes(): Collection
     {
         return $this->lodgingTypes;
     }

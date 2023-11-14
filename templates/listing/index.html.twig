@@ -1,41 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Annonces sur
-	{{ app.request.get('search_dto')['city'] }}
+{% block title %}Annonces
+	{{ app.request.get('search_dto') ? "sur "~app.request.get('search_dto')['city'] : "" }}
 {% endblock %}
 
 {% block body %}
 
 	{# form de recherche #}
 	{{ render_esi(path('app_search')) }}
-	{# ajouter contenu du form #}
 
 	<div class="container">
-		{% if offers %}
-			<h1>
-				{{ offers|length == 1 ?
-					"Nous avons trouvé 1 offre sur " ~ app.request.get('search_dto')['city'] ~ "."
-					:
-					"Voici les " ~ offers|length ~ " offres sur " ~ app.request.get('search_dto')['city'] ~ "."
-				}}
-			</h1>
-		{% endif %}
+		<h3>
+			{% if app.request.get('search_dto')['city'] is defined %}
+				{{ pagination.getTotalItemCount == 1 ?
+				"Nous avons trouvé 1 offre sur " ~ app.request.get('search_dto')['city'] ~ "."
+				:
+				"Voici les " ~ pagination.getTotalItemCount ~ " offres sur " ~ app.request.get('search_dto')['city'] ~ "." }}
+			{% else %}
+				Veuillez effectuer une recherche dans le formulaire.
+			{% endif %}
+		</h3>
 
-		{% if offers is empty %}
-			<p>Il n'y pas d'offres pour le moment
-			</p>
-
-		{% endif %}
-
-		{% for offer in offers %}
+		{% for item in pagination %}
 			<div>
-				<img src="{{ asset('media/offer/' ~ offer.media.name ~ ".jpg") }}" alt="">
-				<h3>{{ offer.title }}</h3>
-				<p>{{ offer.content }}</p>
+				<img src="{{ asset('media/offer/' ~ item.media.name ~ ".jpg") }}" alt="">
+				<h3>{{ item.title }}</h3>
+				<p>{{ item.content }}</p>
 				<p>Annonce déposée par :
-					{{ offer.user.firstname }}
-					{{ offer.user.name }}</p>
+					{{ item.user.firstname }}
+					{{ item.user.name }}</p>
 			</div>
 		{% endfor %}
+
+		<div class="navigation">
+			{{ knp_pagination_render(pagination) }}
+		</div>
 	</div>
 {% endblock %}
