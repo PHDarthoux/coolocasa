@@ -6,12 +6,9 @@ namespace App\Form;
 
 use App\DTO\SearchDTO;
 use App\Entity\LodgingType;
-use App\Entity\RentalSearch;
-use App\Entity\RoommateOffer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,8 +21,8 @@ class SearchDTOType extends AbstractType
             ->add('wish', ChoiceType::class, [
                 'label' => false,
                 'choices' => [
-                    'Je cherche un logement' => RoommateOffer::class,
-                    'Je propose un logement' => RentalSearch::class,
+                    'Je cherche un logement' => 0,
+                    'Je propose un logement' => 1,
                 ],
             ])
             ->add('city', TextType::class, [
@@ -39,9 +36,7 @@ class SearchDTOType extends AbstractType
                 'expanded' => true,
                 'required' => false,
             ])
-            ->add('find', SubmitType::class, [
-                'label' => 'Trouver',
-            ])
+            ->setMethod('GET')
         ;
     }
 
@@ -49,6 +44,7 @@ class SearchDTOType extends AbstractType
     {
         $resolver->setDefaults([
             'data-class' => SearchDTO::class,
+            'csrf_protection' => false,
         ]);
     }
 }
