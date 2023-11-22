@@ -14,7 +14,7 @@ class AccueilController extends AbstractController
     #[Route('/', name: 'app_accueil')]
     public function index(OfferRepository $offerRepository): Response
     {
-        $lastOffers = $offerRepository->findBy([], ['createdAt' => 'DESC'], 5);
+        $lastOffers = $offerRepository->findBy([], ['createdAt' => 'DESC'], 10);
 
         return $this->render('accueil/index.html.twig', [
             'lastOffers' => $lastOffers,

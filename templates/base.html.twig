@@ -1,79 +1,88 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>
-			{% block title %}Welcome!
-			{% endblock %}
-		</title>
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-		{% block stylesheets %}
-			{{ encore_entry_link_tags('app') }}
-		{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}Welcome!
+        {% endblock %}
+    </title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
-	</head>
-	<header>
-		{% block header %}
-			<div class="d-flex flex-row-reverse ">
-				{% if app.user %}
-					<div class="p-2">
-						<a href="{{ path('app_logout') }}">Déconnecter</a>
-					</div>
-				{% else %}
-					<div class="p-2">
-						<a href="{{ path('app_login') }}">Connexion</a>
-					</div>
-					<div class="p-2">
-						<a href="{{ path('app_register') }}">S'incrire</a>
-					</div>
-				{% endif %}
-			</div>
-		{% endblock %}
-	</header>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<header>
+    {% block header %}
+        <div class="d-flex flex-row-reverse ">
+            {% if app.user %}
+                <div class="p-2">
+                    <a href="{{ path('app_logout') }}">Déconnecter</a>
+                </div>
+            {% else %}
+                <div class="p-2">
+                    <a href="{{ path('app_login') }}">Connexion</a>
+                </div>
+                <div class="p-2">
+                    <a href="{{ path('app_register') }}">S'incrire</a>
+                </div>
+            {% endif %}
+        </div>
 
-	<body>
-		{% block body %}{% endblock %}
-	</body>
+        <div class="d-flex justify-content-center align-items-center welcome">
+            <a href="{{ path('app_accueil') }}">
+                <img class="mx-2" src="{{ asset('media/logo_coolocasa.png') }}" alt="CooLoCasa : Bienvenue à la maison">
+            </a>
+            <h1 class="mx-2">
+                {{ app.request.get('_route') == "app_accueil" ? 'Bienvenue à la maison !' : 'Qui sera votre prochain colocataire ?' }}</h1>
+        </div>
+    {% endblock %}
+</header>
 
-	<footer>
-		{% block footer %}
-			<div class="container py-4">
-				<div class="row">
-					<div class="d-flex flex-column col-6">
-						<h4 class="mt-2">Menu</h4>
-						<div class="p-1">
-							<a href="#">Mentions Légales</a>
-						</div>
-						<div class="p-1">
-							<a href="#">Contact</a>
-						</div>
-						<div class="p-1">
-							<a href="#">Se connecter</a>
-						</div>
-						<div class="p-1">
-							<a href="#">S'inscrire'</a>
-						</div>
-					</div>
+<body>
+{% block body %}{% endblock %}
+</body>
 
-					<div class="col-6">
-						<h4 class="mt-2">Suivez-nous</h4>
-						<div class="d-flex flex-row">
-							<div class="p-2">
-								<a href="#">icon</a>
-							</div>
-							<div class="p-2">
-								<a href="#">icon</a>
-							</div>
-							<div class="p-2">
-								<a href="#">icon</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		{% endblock %}
-	</footer>
+<footer>
+    {% block footer %}
+        <div class="container py-4">
+            <div class="row">
+                <div class="d-flex flex-column col-6">
+                    <h4 class="mt-2">Menu</h4>
+                    <div class="p-1">
+                        <a href="#">Mentions Légales</a>
+                    </div>
+                    <div class="p-1">
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="p-1">
+                        <a href="#">Se connecter</a>
+                    </div>
+                    <div class="p-1">
+                        <a href="#">S'inscrire'</a>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <h4 class="mt-2">Suivez-nous</h4>
+                    <div class="d-flex flex-row">
+                        <div class="p-2">
+                            <a href="#">icon</a>
+                        </div>
+                        <div class="p-2">
+                            <a href="#">icon</a>
+                        </div>
+                        <div class="p-2">
+                            <a href="#">icon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</footer>
 </html>
