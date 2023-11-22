@@ -35,6 +35,9 @@ class SearchDTOType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'required' => false,
+                'choice_attr' => function ($choice, $key, $value) {
+                    return ['class' => 'ms-3 me-1']; // class pour les checkbox uniquement
+                },
             ])
             ->setMethod('GET')
         ;

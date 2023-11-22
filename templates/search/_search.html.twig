@@ -1,13 +1,13 @@
 <div class="container py-4">
 	{{ form_start(searchForm, {'action': path('app_listing') }) }}
-		<div class="d-flex justify-content-center">
-				{{ form_widget(searchForm.wish) }}
-				{{ form_widget(searchForm.city) }}
-				<button type="submit">Trouver</button>
+		<div class="d-flex justify-content-center input-group">
+				{{ form_widget(searchForm.wish, { 'attr' : { 'class' : 'ps-2 border-0 bg-primary text-light' }} ) }}
+				{{ form_widget(searchForm.city, { 'attr' : { 'class' : 'border-0 bg-light' }} ) }}
+				<button type="submit" class="btn bg-primary text-light rounded-0">Trouver</button>
 		</div>
 
-		<div class="d-flex justify-content-center">
-			{{ form_widget(searchForm.lodgingTypes) }}
+		<div class="d-flex justify-content-center mt-1">
+			{{ form_widget(searchForm.lodgingTypes ) }}
 		</div>
 	{{ form_end(searchForm) }}
 </div>
