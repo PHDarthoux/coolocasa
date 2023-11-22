@@ -1,10 +1,15 @@
 header{
     background-color: #d81159;
+    color: #8F2D56;
 }
 
 header a {
     color: white;
     text-decoration: none;
+}
+
+.welcome{
+    background: #FFBC42;
 }
 
 footer{
