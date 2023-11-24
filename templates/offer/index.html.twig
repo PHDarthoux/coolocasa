@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="d-flex">
+            <div>
+                <img src="{{ asset('media/offer/' ~ offer.media.name) }}" alt="">
+                <p class="text-muted">Annonce créée le {{ offer.createdAt|date('d/m/Y') }}</p>
+                <h1>{{ offer.title }}</h1>
+                <p>{{ offer.content }}</p>
+
+                {% if offer.roommateOffer is null %}
+                    {% include 'offer/include/_rental_search.html.twig' %}
+                {% else %}
+                    {% include 'offer/include/_roommate_offer.html.twig' %}
+                {% endif %}
+            </div>
+
+            <div>
+                {% include 'offer/include/_user.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
