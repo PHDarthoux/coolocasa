@@ -7,27 +7,31 @@
 
 	{% include "include/_flash.html.twig" %}
 
-	<div class="py-4 text-center welcome">
-		<h1>Bienvenue sur CooLoCasa</h1>
-	</div>
-
 	{# form de recherche #}
 	{{ render_esi(path('app_search')) }}
 	
 	{# listing des dernières offres #}
 	<div class="container">
+	<h2>
+		Découvrez les {{ lastOffers|length }} dernières annonces !
+	</h2>
+		<div class="row justify-content-center">
 		{% for offer in lastOffers %}
-		{# TODO: mise en forme des vignettes #}
-			<div>
-				<img src="{{ asset('media/offer/' ~ offer.media.name ~ ".jpg") }}" alt="">
-				<h3>{{ offer.title }}</h3>
-				<p>{{ offer.content }}</p>
-				<p>Annonce déposée par :
-					{{ offer.user.firstname }}
-					{{ offer.user.name }}</p>
+			<div class="card m-3 p-0" style="width: 18rem;">
+				<img class="card-img-top" src="{{ asset('media/offer/' ~ offer.media.name) }}" alt="{{ offer.title }}">
+				<div class="card-body">
+					<h5 class="card-title">{{ offer.title }}</h5>
+					<p class="card-text">{{ offer.content|u.truncate(40, '...', false) }}</p>
+					<p class="card-text"><small class="text-muted">Annonce déposée par :
+						{{ offer.user.firstname }}
+						{{ offer.user.name }}</small></p>
+				</div>
+				<div class="card-footer bg-transparent border-0 pt-0 text-center">
+					<a href="{{ path('app_offer', { 'id' : offer.id }) }}" class="btn btn-primary px-5">En savoir +</a>
+				</div>
 			</div>
 		{% endfor %}
+		</div>
 	</div>
-
 
 {% endblock %}

@@ -1,39 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Annonces
-	{{ app.request.get('search_dto') ? "sur "~app.request.get('search_dto')['city'] : "" }}
+    {{ app.request.get('search_dto') ? "sur "~app.request.get('search_dto')['city'] : "" }}
 {% endblock %}
 
 {% block body %}
 
-	{# form de recherche #}
-	{{ render_esi(path('app_search')) }}
+    {# form de recherche #}
+    {{ render_esi(path('app_search')) }}
 
-	<div class="container">
-		<h3>
-			{% if app.request.get('search_dto')['city'] is defined %}
-				{{ pagination.getTotalItemCount == 1 ?
-				"Nous avons trouvé 1 offre sur " ~ app.request.get('search_dto')['city'] ~ "."
-				:
-				"Voici les " ~ pagination.getTotalItemCount ~ " offres sur " ~ app.request.get('search_dto')['city'] ~ "." }}
-			{% else %}
-				Veuillez effectuer une recherche dans le formulaire.
-			{% endif %}
-		</h3>
+    <div class="container">
+        <h3>
+            {% if app.request.get('search_dto')['city'] is defined %}
+                {{ pagination.getTotalItemCount == 1 ?
+                "Nous avons trouvé 1 offre sur " ~ app.request.get('search_dto')['city'] ~ "."
+                :
+                "Voici les " ~ pagination.getTotalItemCount ~ " offres sur " ~ app.request.get('search_dto')['city'] ~ "." }}
+            {% else %}
+                Veuillez effectuer une recherche dans le formulaire.
+            {% endif %}
+        </h3>
 
-		{% for item in pagination %}
-			<div>
-				<img src="{{ asset('media/offer/' ~ item.media.name ~ ".jpg") }}" alt="">
-				<h3>{{ item.title }}</h3>
-				<p>{{ item.content }}</p>
-				<p>Annonce déposée par :
-					{{ item.user.firstname }}
-					{{ item.user.name }}</p>
-			</div>
-		{% endfor %}
+        <div class="row justify-content-center">
 
-		<div class="navigation">
-			{{ knp_pagination_render(pagination) }}
-		</div>
-	</div>
+            {% for item in pagination %}
+                <div class="card m-3 p-0" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ asset('media/offer/' ~ item.media.name) }}"
+                         alt="{{ item.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+                        <p class="card-text">{{ item.content|u.truncate(40, '...', false) }}</p>
+                        <p class="card-text"><small class="text-muted">Annonce déposée par :
+                                {{ item.user.firstname }}
+                                {{ item.user.name }}</small></p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pt-0 text-center">
+                        <a href="{{ path('app_offer', {'id' : item.id}) }}" class="btn btn-primary px-5">En savoir +</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

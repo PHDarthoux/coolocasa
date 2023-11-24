@@ -1,0 +1,22 @@
+<div>
+    <p>A propos de la colocation:</p>
+    <p>Type de logement: {{ offer.roommateOffer.lodgingType }}</p>
+    <p>Adresse : {{ offer.roommateOffer.addressLine1 }}</p>
+    <p>{{ offer.roommateOffer.addressLine2 }}</p>
+    <p>{{ offer.roommateOffer.postalCode }} {{ offer.roommateOffer.city }}</p>
+    <p>Surface du logement : {{ offer.roommateOffer.area }} m²</p>
+    <p>Loyer : {{ offer.roommateOffer.price }} Euros / mois</p>
+    <p>Logement disponible à partir du {{ offer.roommateOffer.availabilityDate|date('d/m/Y') }}</p>
+    <p>Logement disponible juqu'au {{ offer.roommateOffer.disponibility|date('d/m/Y') }}</p>
+    <p>Equipé ? {{ offer.roommateOffer.furnished ? 'OUI' : 'NON' }}</p>
+    <p>Fumeur Accepté ? {{ offer.roommateOffer.smokerAccepted ? 'OUI' : 'NON' }}</p>
+    <p>Animal accepté ? {{ offer.roommateOffer.animalAccepted ? 'OUI' : 'NON' }}</p>
+    <p>Accès personne en situation de handicap ? {{ offer.roommateOffer.handicapAccess ? 'OUI' : 'NON' }}</p>
+
+    <h3>Découvrez plus de photos: </h3>
+    <div class="d-flex flex-wrap">
+        {% for media in offer.roommateOffer.medias %}
+            <img class="m-1" src="{{ asset('media/offer/' ~ media.name ) }}" style="width: 18rem;" alt="">
+        {% endfor %}
+    </div>
+</div>

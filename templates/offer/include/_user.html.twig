@@ -1,0 +1,21 @@
+<div class="card m-3 p-0" style="width: 18rem;">
+    {% if offer.user.media is not null %}
+        <img class="card-img-top" src="{{ asset('media/user/' ~ offer.user.media.name) }}"
+             alt="Photo de profil de l'annonceur">
+    {% else %}
+        <img class="card-img-top" src="{{ asset('media/user/Portrait_Placeholder.jpg') }}"
+             alt="Photo de profil de l'annonceur absente">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{ offer.user.name }} {{ offer.user.firstname }} </h5>
+
+        <p class="card-text">Genre:
+            {% if offer.user.gender.type == constant('App\\Entity\\Gender::HOMME') %}♂{% endif %}
+            {% if offer.user.gender.type == constant('App\\Entity\\Gender::FEMME') %}♀{% endif %}
+            {% if offer.user.gender.type == constant('App\\Entity\\Gender::NONDEFINI') %}Non défini{% endif %}
+        </p>
+
+        <button type="button" class="btn bg-primary text-light rounded-0">Message</button>
+
+    </div>
+</div>
