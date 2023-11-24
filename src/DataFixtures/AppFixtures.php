@@ -55,10 +55,10 @@ class AppFixtures extends Fixture
         // Création des Users
         $users = UserFactory::createMany(
             5,
-            function () {
+            function ($i) {
                 return [
                     'gender' => GenderFactory::random(),
-                    'media' => MediaFactory::new(),
+                    'media' => MediaFactory::createOne(['name' => 'profil'.$i.'.jpg']),
                 ];
             }
         );

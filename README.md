@@ -2,6 +2,11 @@
 CooloCasa (appli de mise en relation de personnnes qui recherchent une colocation, qu'elles recherchent un bien ou qu'elles en proposent un)
 Application développée en PHP et le framwork Symfony.
 
+# appli prête à l'emploi avec fixtures:
+symfony console doctrine:database:create
+symfony console doctrine:migrations:migrate
+symfony console doctrine:fixtures:load
+
 I. Objectifs
 
     L'objectif de ce projet perso est de développer une application web qui permettra aux utilisateurs de trouver des colocataires potentiels pour partager un logement. 

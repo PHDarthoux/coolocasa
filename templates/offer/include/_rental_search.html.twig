@@ -1,0 +1,29 @@
+<div>
+    <p>Ville Souhaitée: {{ offer.rentalSearch.desiredCity }}</p>
+    <p>Type de logement recherché:</p>
+    <ul>
+        {% for lodgingType in offer.rentalSearch.lodgingType %}
+            <li>{{ lodgingType }}</li>
+        {% endfor %}
+    </ul>
+    <p>Budget Maximum: {{ offer.rentalSearch.maxBudget }}</p>
+
+    {% if offer.rentalSearch.smoker %}
+        <p>Fumeur: OUI</p>
+    {% endif %}
+
+    {% if offer.rentalSearch.hasAnimal %}
+        <p>J'ai un animal: OUI</p>
+    {% endif %}
+
+    <p>Date d'emmenagement souhaitée: {{ offer.rentalSearch.desiredMoveInDate|date('d/m/Y') }}</p>
+    <p>Centres d'intérêt: {{ offer.rentalSearch.centerOfInterest }}</p>
+
+    {% if offer.rentalSearch.acceptSmoker %}
+        <p>Fumeur dans le logement accepté: OUI</p>
+    {% endif %}
+
+    {% if offer.rentalSearch.desiredCity %}
+        <p>Animal Accepté: OUI</p>
+    {% endif %}
+</div>

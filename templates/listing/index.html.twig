@@ -25,7 +25,7 @@
 
             {% for item in pagination %}
                 <div class="card m-3 p-0" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('media/offer/' ~ item.media.name ~ ".jpg") }}"
+                    <img class="card-img-top" src="{{ asset('media/offer/' ~ item.media.name) }}"
                          alt="{{ item.title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ item.title }}</h5>
@@ -35,7 +35,7 @@
                                 {{ item.user.name }}</small></p>
                     </div>
                     <div class="card-footer bg-transparent border-0 pt-0 text-center">
-                        <a href="#" class="btn btn-primary px-5">En savoir +</a>
+                        <a href="{{ path('app_offer', {'id' : item.id}) }}" class="btn btn-primary px-5">En savoir +</a>
                     </div>
                 </div>
             {% endfor %}

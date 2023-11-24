@@ -65,7 +65,7 @@ final class MediaFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'name' => self::faker()->randomElement(['appartement', 'maison', 'bateau', 'chalet', 'ferme', 'studio', 'villa']),
+            'name' => self::faker()->randomElement(['appartement.jpg', 'maison.jpg', 'bateau.jpg', 'chalet.jpg', 'ferme.jpg', 'studio.jpg', 'villa.jpg']),
         ];
     }
 
